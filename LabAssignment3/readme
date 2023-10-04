@@ -1,0 +1,6 @@
+This is the Lab 3 assignment on Java Swing.
+The application is built to collect the user information. Basic details of user such as First name, Last Name, Age, Gender, Email, Message and Picture upload.
+There are validations for Name, Age, Email
+Name should be in proper format, should not contain any numners or special characters
+Age should not be greater than 120 years
+Email should contain @ and .
