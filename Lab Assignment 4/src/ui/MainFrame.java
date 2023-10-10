@@ -49,6 +49,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         ViewButton.setText("View");
+        ViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
         TopPanel.setLayout(TopPanelLayout);
@@ -93,12 +98,20 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void FormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormButtonActionPerformed
         // TODO add your handling code here:
-        FormPanel newForm = new FormPanel();
+        FormPanel newForm = new FormPanel(BottomPanel);
 //        SplitPane.setBottomComponent(newForm);
         CardLayout layout = (CardLayout) BottomPanel.getLayout();
         BottomPanel.add(newForm);
         layout.next(BottomPanel);
     }//GEN-LAST:event_FormButtonActionPerformed
+
+    private void ViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewButtonActionPerformed
+        // TODO add your handling code here:
+        ViewPanel newViewPanel = new ViewPanel(null);
+        BottomPanel.add(newViewPanel);
+        CardLayout layout=(CardLayout) BottomPanel.getLayout();
+        layout.next(BottomPanel);
+    }//GEN-LAST:event_ViewButtonActionPerformed
 
     /**
      * @param args the command line arguments

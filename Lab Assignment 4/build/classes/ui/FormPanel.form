@@ -63,7 +63,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="title" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
@@ -83,13 +83,17 @@
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="submitButton" alignment="1" min="-2" pref="217" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="profilePictureLabel" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                                                  <Component id="uploadButton" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="profilePictureLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="customerTypeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
+                                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="uploadButton" max="32767" attributes="0"/>
+                                                  <Component id="customerTypeInput" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -111,7 +115,12 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="341" max="32767" attributes="0"/>
+                  <EmptySpace pref="379" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="submitButton" min="-2" pref="217" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -162,12 +171,22 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="profilePictureLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="profilePictureLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="uploadButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="customerTypeLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="customerTypeInput" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
                   <Component id="submitButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -231,18 +250,27 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="maleRadio">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="genderGroup"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Male"/>
             <Property name="actionCommand" type="java.lang.String" value="MALE"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="femaleRadio">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="genderGroup"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Female"/>
             <Property name="actionCommand" type="java.lang.String" value="FEMALE"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="doNotPreferRadio">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="genderGroup"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Prefer not to Say"/>
             <Property name="actionCommand" type="java.lang.String" value="PREFER NOT TO SAY"/>
           </Properties>
@@ -330,6 +358,24 @@
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="customerTypeLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Customer Type:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="customerTypeInput">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Member"/>
+                <StringItem index="1" value="Walk In"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
