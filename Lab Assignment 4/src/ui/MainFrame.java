@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author lenovo
@@ -26,21 +28,77 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        SplitPane = new javax.swing.JSplitPane();
+        TopPanel = new javax.swing.JPanel();
+        FormButton = new javax.swing.JButton();
+        ViewButton = new javax.swing.JButton();
+        BottomPanel = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 600));
+
+        SplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
+        TopPanel.setPreferredSize(new java.awt.Dimension(700, 150));
+
+        FormButton.setText("Form");
+        FormButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormButtonActionPerformed(evt);
+            }
+        });
+
+        ViewButton.setText("View");
+
+        javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
+        TopPanel.setLayout(TopPanelLayout);
+        TopPanelLayout.setHorizontalGroup(
+            TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TopPanelLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(FormButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+                .addComponent(ViewButton)
+                .addGap(115, 115, 115))
+        );
+        TopPanelLayout.setVerticalGroup(
+            TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FormButton)
+                    .addComponent(ViewButton))
+                .addContainerGap())
+        );
+
+        SplitPane.setTopComponent(TopPanel);
+
+        BottomPanel.setPreferredSize(new java.awt.Dimension(700, 450));
+        BottomPanel.setLayout(new java.awt.CardLayout());
+        SplitPane.setRightComponent(BottomPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(SplitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void FormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormButtonActionPerformed
+        // TODO add your handling code here:
+        FormPanel newForm = new FormPanel();
+//        SplitPane.setBottomComponent(newForm);
+        CardLayout layout = (CardLayout) BottomPanel.getLayout();
+        BottomPanel.add(newForm);
+        layout.next(BottomPanel);
+    }//GEN-LAST:event_FormButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +136,10 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BottomPanel;
+    private javax.swing.JButton FormButton;
+    private javax.swing.JSplitPane SplitPane;
+    private javax.swing.JPanel TopPanel;
+    private javax.swing.JButton ViewButton;
     // End of variables declaration//GEN-END:variables
 }
