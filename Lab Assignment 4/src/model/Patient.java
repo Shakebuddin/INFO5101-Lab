@@ -15,7 +15,7 @@ public class Patient {
     private String lastName;
     private String email;
     private String age;
-    private ButtonModel gender;
+    private String gender;
     private String message;
     private String customerType;
     private String FilePath;
@@ -93,14 +93,14 @@ public class Patient {
     /**
      * @return the gender
      */
-    public ButtonModel getGender() {
+    public String getGender() {
         return gender;
     }
 
     /**
      * @param gender the gender to set
      */
-    public void setGender(ButtonModel gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

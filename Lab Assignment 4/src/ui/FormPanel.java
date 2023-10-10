@@ -415,7 +415,7 @@ private String FilePath;
         newUser.setLastName(lastNameInput.getText());
         newUser.setEmail(emailInput.getText());
         newUser.setAge(ageInput.getText());
-        newUser.setGender(genderGroup.getSelection());
+        newUser.setGender(genderGroup.getSelection().getActionCommand());
         newUser.setMessage(messageInput.getText());
         newUser.setCustomerType(customerTypeInput.getSelectedItem().toString());
         newUser.setFilePath(FilePath);

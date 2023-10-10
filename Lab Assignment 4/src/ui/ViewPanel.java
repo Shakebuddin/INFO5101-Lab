@@ -13,7 +13,10 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
+import java.util.Enumeration;
 import javax.imageio.ImageIO;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonModel;
 import model.Patient;
 /**
  *
@@ -212,7 +215,7 @@ public class ViewPanel extends javax.swing.JPanel {
                                     .addComponent(messageLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(118, 118, 118))
+                .addGap(171, 171, 171))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(162, 162, 162)
                 .addComponent(title)
@@ -238,8 +241,9 @@ public class ViewPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Imagei, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(217, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(firstNameLabel)
                             .addComponent(firstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -265,13 +269,13 @@ public class ViewPanel extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(messageLabel)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(customerTypeLabel))
                             .addComponent(customerTypeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(62, 62, 62))))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -395,7 +399,24 @@ private ImageIcon uploadedImageIcon;
         ageInput.setText(this.newUser.getAge());
         emailInput.setText(this.newUser.getEmail());
         messageInput.setText(this.newUser.getMessage());
-        genderGroup.setSelected(this.newUser.getGender(), true);
+//        genderGroup.setSelected(this.newUser.getGender(), true);
+String genderToSelect = this.newUser.getGender(); // Get the gender from the model
+
+Enumeration<AbstractButton> buttons = genderGroup.getElements();
+ButtonModel selectedButtonModel = null;
+
+while (buttons.hasMoreElements()) {
+    AbstractButton button = buttons.nextElement();
+    if (button.getActionCommand().equals(genderToSelect)) {
+        selectedButtonModel = button.getModel();
+        break; // Exit the loop after finding the matching radio button
+    }
+}
+
+if (selectedButtonModel != null) {
+    genderGroup.setSelected(selectedButtonModel, true);
+}
+        System.out.println("GENDER "+ this.newUser.getGender());
         customerTypeInput.setSelectedItem(this.newUser.getCustomerType());
         try {
                 ImageIcon originalImageIcon = new ImageIcon(this.newUser.getFilePath());
